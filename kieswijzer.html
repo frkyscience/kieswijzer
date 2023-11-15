@@ -16,8 +16,8 @@
     </div>
     <nav>
         <div class="topnav">
-            <a class="active" href="index.html">Home</a>
-            <a href="kieswijzer.html">Kieswijzer</a>
+            <a href="index.html">Home</a>
+            <a class="active" href="kieswijzer.html">Kieswijzer</a>
             <div class="topnav-right">
                 <a href="FAQ.html">FAQ</a>
             </div>
@@ -28,19 +28,102 @@
         <p>Maak de juiste keuze op basis van jouw behoeften en voorkeuren</p>
     </header>
 
-    <div class="panel">
-        <h1>kieswijzer</h1>
-        <div class="question" id="ques"></div>
-        <div class="options" id="opt"></div>
-        <button onclick="checkAns()" id="btn">SUBMIT</button>
-        <div id="score"></div>
-        <script src="script.js"></script>
-    </div>
-    <footer>
-        <p>© 2023 Kieswijzer. Alle rechten voorbehouden.</p>
-    </footer>
-    <script src="loader.js"></script>
-</body>
 
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+
+        <form action="">
+            <div class="question" id="question1">
+                <p>Question 1: Welke partij vertegenwoordigt het best jouw mening over de overheidsgrootte en
+                    individuele vrijheden?</p>
+                <label><input type="radio" name="q1" value="10"> VVD</label>
+                <label><input type="radio" name="q1" value="5"> PvdA</label>
+                <label><input type="radio" name="q1" value="3"> PVV</label>
+                <label><input type="radio" name="q1" value="7"> GroenLinks</label>
+            </div>
+
+            <div class="question" id="question2">
+                <p>Question 2: Wat is jouw standpunt over sociale kwesties?</p>
+                <label><input type="radio" name="q2" value="8"> VVD</label>
+                <label><input type="radio" name="q2" value="6"> PvdA</label>
+                <label><input type="radio" name="q2" value="4"> PVV</label>
+                <label><input type="radio" name="q2" value="2"> GroenLinks</label>
+            </div>
+
+            <div class="question" id="question3">
+                <p>Question 3: Hoe sta je tegenover economische gelijkheid?</p>
+                <label><input type="radio" name="q3" value="9"> VVD</label>
+                <label><input type="radio" name="q3" value="7"> PvdA</label>
+                <label><input type="radio" name="q3" value="3"> PVV</label>
+                <label><input type="radio" name="q3" value="5"> GroenLinks</label>
+            </div>
+
+            <div class="question" id="question4">
+                <p>Question 4: Wat is jouw standpunt over internationale betrekkingen?</p>
+                <label><input type="radio" name="q4" value="6"> VVD</label>
+                <label><input type="radio" name="q4" value="8"> PvdA</label>
+                <label><input type="radio" name="q4" value="2"> PVV</label>
+                <label><input type="radio" name="q4" value="4"> GroenLinks</label>
+            </div>
+
+            <button type="button" onclick="calculateResult()">Submit</button>
+        </form>
+
+        <div id="result"></div>
+
+        <script>
+            function calculateResult() {
+                const q1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
+                const q2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
+                const q3 = parseInt(document.querySelector('input[name="q3"]:checked').value);
+                const q4 = parseInt(document.querySelector('input[name="q4"]:checked').value);
+
+                if (q1 && q2 && q3 && q4) {
+                    const totalScore = q1 + q2 + q3 + q4;
+
+                    let result;
+                    if (totalScore >= 30) {
+                        result = 'Je bent sterk geassocieerd met de VVD.';
+                    } else if (totalScore >= 20) {
+                        result = 'Je bent sterk geassocieerd met de PvdA.';
+                    } else if (totalScore >= 10) {
+                        result = 'Je bent sterk geassocieerd met de PVV.';
+                    } else {
+                        result = 'Je bent sterk geassocieerd met GroenLinks.';
+                    }
+
+                    console.log(`Total Score: ${totalScore}`);
+                    showResult(result);
+                } else {
+                    showResult('Selecteer a.u.b. een antwoord voor elke vraag.');
+                }
+            }
+
+            function showResult(result) {
+                document.getElementById('result').innerHTML = result;
+            }
+
+        </script>
+        <script src="loader.js"></script>
+    </body>
 
 </html>
+
+
