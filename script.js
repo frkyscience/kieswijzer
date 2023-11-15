@@ -31,23 +31,32 @@ function calculateResult() {
     const totalScore = q1 + q2 + q3 + q4;
 
     let result;
+    let imageUrl;
+
     if (totalScore >= 30) {
       result = 'Je bent sterk geassocieerd met de VVD.';
+      imageUrl = 'https://picsum.photos/200/300'
     } else if (totalScore >= 20) {
       result = 'Je bent sterk geassocieerd met de PvdA.';
+      imageUrl = 'https://picsum.photos/200/300';
     } else if (totalScore >= 10) {
       result = 'Je bent sterk geassocieerd met de PVV.';
+      imageUrl = 'https://picsum.photos/200/300';
     } else {
       result = 'Je bent sterk geassocieerd met GroenLinks.';
+      imageUrl = 'https://picsum.photos/200/300'; 
     }
 
     console.log(`Total Score: ${totalScore}`);
-    showResult(result);
+    showResult(result, imageUrl);
   } else {
     showResult('Selecteer a.u.b. een antwoord voor elke vraag.');
   }
 }
 
-function showResult(result) {
-  document.getElementById('result').innerHTML = result;
+function showResult(result,) {
+  const resultContainer = document.getElementById('result');
+
+  resultContainer.innerHTML = result;
+  resultImage.src = imageUrl;
 }
