@@ -43,5 +43,4 @@ function showResult() {
   document.getElementById("score").textContent = `Your recommended party is: ${winningParty.name}`;
 }
 
-// Initial display
 displayQuestion();

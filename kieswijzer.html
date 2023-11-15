@@ -16,15 +16,17 @@
     </div>
     <nav>
         <div class="topnav">
-            <a href="index.html">Home</a>
-            <a class="active" href="kieswijzer.html">Kieswijzer</a>
+            <a  href="index.html"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kieskompas_Logo.png/1200px-Kieskompas_Logo.png"
+                    alt="" width="100xp" height="50px"></a>
+            <a class="active"  href="kieswijzer.html">Kieswijzer</a>
             <div class="topnav-right">
                 <a href="FAQ.html">FAQ</a>
             </div>
         </div>
     </nav>
     <header>
-        <h1>Ontdek jouw Weg met de Kieswijzer</h1>
+        <h1>de Kieswijzer</h1>
         <p>Maak de juiste keuze op basis van jouw behoeften en voorkeuren</p>
     </header>
 
@@ -47,48 +49,79 @@
     </head>
 
     <body>
-
-
         <form action="">
-            <div class="question" id="question1">
-                <p>Question 1: Welke partij vertegenwoordigt het best jouw mening over de overheidsgrootte en
-                    individuele vrijheden?</p>
-                <label><input type="radio" name="q1" value="10"> VVD</label>
-                <label><input type="radio" name="q1" value="5"> PvdA</label>
-                <label><input type="radio" name="q1" value="3"> PVV</label>
-                <label><input type="radio" name="q1" value="7"> GroenLinks</label>
-            </div>
+            <section class="question" id="question1">
+                <p>1. Overheidsgrootte en individuele vrijheden:</p>
+                <label><input type="radio" name="q1" value="10"> Kleine overheid, essentiële individuele
+                    vrijheden.</label>
+                <label><input type="radio" name="q1" value="5"> Evenwichtige overheid, individuele vrijheden.</label>
+                <label><input type="radio" name="q1" value="3"> Krachtige overheid, beperkte individuele
+                    vrijheden.</label>
+                <label><input type="radio" name="q1" value="7"> Actieve overheid, waarborgen individuele
+                    vrijheden.</label>
+            </section>
 
-            <div class="question" id="question2">
-                <p>Question 2: Wat is jouw standpunt over sociale kwesties?</p>
-                <label><input type="radio" name="q2" value="8"> VVD</label>
-                <label><input type="radio" name="q2" value="6"> PvdA</label>
-                <label><input type="radio" name="q2" value="4"> PVV</label>
-                <label><input type="radio" name="q2" value="2"> GroenLinks</label>
-            </div>
+            <section class="question" id="question2">
+                <p>2. Standpunt over sociale kwesties:</p>
+                <label><input type="radio" name="q2" value="8"> Progressief, open voor sociale veranderingen.</label>
+                <label><input type="radio" name="q2" value="6"> Progressief, met behoud van traditionele
+                    waarden.</label>
+                <label><input type="radio" name="q2" value="4"> Conservatief, behoudend op sociaal gebied.</label>
+                <label><input type="radio" name="q2" value="2"> Progressief, met behoud van traditionele
+                    waarden.</label>
+            </section>
 
-            <div class="question" id="question3">
-                <p>Question 3: Hoe sta je tegenover economische gelijkheid?</p>
-                <label><input type="radio" name="q3" value="9"> VVD</label>
-                <label><input type="radio" name="q3" value="7"> PvdA</label>
-                <label><input type="radio" name="q3" value="3"> PVV</label>
-                <label><input type="radio" name="q3" value="5"> GroenLinks</label>
-            </div>
+            <section class="question" id="question3">
+                <p>3. Standpunt over economische gelijkheid:</p>
+                <label><input type="radio" name="q3" value="9"> Voor economische vrijheid, stimuleren van
+                    ondernemerschap.</label>
+                <label><input type="radio" name="q3" value="7"> Gemengde economie, aandacht voor sociale
+                    gelijkheid.</label>
+                <label><input type="radio" name="q3" value="3"> Overheidsinterventie, verminderen economische
+                    ongelijkheid.</label>
+                <label><input type="radio" name="q3" value="5"> Sterk sociaal vangnet, economische gelijkheid.</label>
+            </section>
 
-            <div class="question" id="question4">
-                <p>Question 4: Wat is jouw standpunt over internationale betrekkingen?</p>
-                <label><input type="radio" name="q4" value="6"> VVD</label>
-                <label><input type="radio" name="q4" value="8"> PvdA</label>
-                <label><input type="radio" name="q4" value="2"> PVV</label>
-                <label><input type="radio" name="q4" value="4"> GroenLinks</label>
-            </div>
+            <section class="question" id="question4">
+                <p>4. Standpunt over internationale betrekkingen:</p>
+                <label><input type="radio" name="q4" value="6"> Voor internationale samenwerking en
+                    globalisering.</label>
+                <label><input type="radio" name="q4" value="8"> Voor samenwerking, met aandacht voor nationale
+                    belangen.</label>
+                <label><input type="radio" name="q4" value="2"> Meer nadruk op nationale belangen, minder op
+                    internationale samenwerking.</label>
+                <label><input type="radio" name="q4" value="4"> Internationale samenwerking, met behoud van nationale
+                    identiteit.</label>
+            </section>
 
-            <button type="button" onclick="calculateResult()">Submit</button>
+            <button class="button" type="button" onclick="calculateResult()">Submit</button>
         </form>
 
         <div id="result"></div>
-
         <script>
+            let currentQuestion = 1;
+
+            function nextQuestion() {
+                const currentSection = document.getElementById(`question${currentQuestion}`);
+                const form = document.getElementById('politicalTestForm');
+
+                const selectedOption = form.querySelector(`input[name="q${currentQuestion}"]:checked`);
+                if (!selectedOption) {
+                    alert('Please select an option before proceeding.');
+                    return;
+                }
+
+                currentSection.style.display = 'none';
+                currentQuestion++;
+
+                if (currentQuestion <= 4) {
+                    const nextSection = document.getElementById(`question${currentQuestion}`);
+                    nextSection.style.display = 'block';
+                } else {
+                    calculateResult();
+                }
+            }
+
             function calculateResult() {
                 const q1 = parseInt(document.querySelector('input[name="q1"]:checked').value);
                 const q2 = parseInt(document.querySelector('input[name="q2"]:checked').value);
@@ -119,11 +152,8 @@
             function showResult(result) {
                 document.getElementById('result').innerHTML = result;
             }
-
         </script>
         <script src="loader.js"></script>
     </body>
 
 </html>
-
-
