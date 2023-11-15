@@ -31,23 +31,6 @@
     </header>
 
 
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .question {
-            margin-bottom: 10px;
-        }
-
-        #result {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
-    </head>
-
     <body>
         <form action="">
             <section class="question" id="question1">
@@ -94,12 +77,30 @@
                     identiteit.</label>
             </section>
 
-            <button class="button" type="button" onclick="calculateResult()">Submit</button>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <button class="button btn btn-primary" type="button" onclick="calculateResult()">Submit</button>
+            </div>
         </form>
 
-        <div id="result"></div>
+      
+      
+      
+      
+       
+        <div class="test" id="result"></div>
+        
+        
+        
+        
+        
+        
+        
         <script src="script.js"></script>
         <script src="loader.js"></script>
+
+        <footer>
+            <p>© 2023 Kieswijzer. Alle rechten voorbehouden.</p>
+        </footer>
     </body>
 
 </html>

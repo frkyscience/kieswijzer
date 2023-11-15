@@ -16,6 +16,7 @@ body {
 .question {
     font-size: 30px;
     margin-bottom: 20px;
+    display: grid;
 }
 
 .options {
@@ -46,10 +47,10 @@ button {
     color: darkslategray;
     margin-top: 10px;
 }
+
 footer {
     text-align: center;
     padding: 10px 0;
     background-color: #222;
     color: #fff;
 }
-
