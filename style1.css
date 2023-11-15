@@ -1,5 +1,7 @@
 body {
-    background-color: aliceblue;
+    background-color: #f4f4f4;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .panel {
@@ -8,7 +10,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: navy;
+    color: #333;
 }
 
 .question {
@@ -19,8 +21,8 @@ body {
 .options {
     font-size: 20px;
     display: flex;
-    flex-direction: column; /* Display options in a column */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -44,3 +46,10 @@ button {
     color: darkslategray;
     margin-top: 10px;
 }
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+    color: #fff;
+}
+

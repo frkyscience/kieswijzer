@@ -2,7 +2,7 @@ const parties = [
   { name: "Bij1", points: 0 },
   { name: "Pvv", points: 0 },
   { name: "fvd", points: 0 },
-  { name: "vvd", points: 3 },
+  { name: "vvd", points: 0 },
 ];
 
 const questions = [
