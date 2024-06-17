@@ -1,6 +1,6 @@
 # 🌟 **Welkom bij de Kieswijzer!** 🌟
 
-### 🎉 Ontworpen door Jesse en Akshay 🎉
+### 🎉 Ontworpen door Jesse,  Akshay & Melvyn 🎉
 
 ---
 
